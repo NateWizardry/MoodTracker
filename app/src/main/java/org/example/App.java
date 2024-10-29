@@ -1,28 +1,38 @@
 package org.example;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.knowm.xchart.QuickChart;
-import org.knowm.xchart.XYChart;
 import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
+
+
+
 
 public class App {
     private static final String FILE_NAME = "mood_data.csv";
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        LocalDate today = LocalDate.now();
-        System.out.println("Enter your mood on a scale of 1 - 10. (1 being down in the dumps, and 10 being Euphoric)");
-        int moodIndex = scanner.nextInt();
-        saveMood(today, moodIndex);
-        
-        if (today.getDayOfWeek().getValue() == 6) {  // If it's SAT
-            Map<LocalDate, Integer> moodData = readMoodData();
+        // UI ui = new UI();
+        UI.start();
 
-            showMoodGraph(moodData);
-        } else {
-            System.out.println("Your mood has been recorded.");
-        }
+        // LocalDate today = LocalDate.now();
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("Enter your mood on a scale of 1 - 10. (1 being down in the dumps, and 10 being Euphoric)");
+        // int moodIndex = scanner.nextInt();
+        // saveMood(today, moodIndex);
+        // if (today.getDayOfWeek().getValue() == 7) {  // If it's the Weekend
+        //     Map<LocalDate, Integer> moodData = readMoodData();
+        //     showMoodGraph(moodData);
+        // } else {
+        //     System.out.println("Your mood has been recorded.");
+        // }
     }
 
     private static void saveMood(LocalDate date, int moodIndex) {
@@ -53,7 +63,7 @@ public class App {
         int size = moodData.size();
         double[] xData = new double[size];
         double[] yData = new double[size];
-        String[] xLabels = new String[size]; // Array to hold date labels
+        // String[] xLabels = new String[size]; // Array to hold date labels
     
         // Populate yData and xLabels using mood values from moodData
         int index = 0;
@@ -62,7 +72,7 @@ public class App {
             String date = entry.getKey().toString(); // Store date as a string in xLabels
             xData[index] = index+1; // Keep the xData as index for plotting
             yData[index] = mood; // Assign mood value to yData
-            xLabels[index] = date; // Store date as a string in xLabels
+            // xLabels[index] = date; // Store date as a string in xLabels
             System.out.println("Day "+index+": "+date+" Happiness level: "+mood);
             index++;
         }
