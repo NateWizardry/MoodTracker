@@ -7,6 +7,12 @@ import java.awt.event.ActionListener;
 public class UI {
 
     public static void start() {
+        try {
+            // since this function throws errors, it must be caught
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            // do nothing, fall back to default UI
+        }
         SwingUtilities.invokeLater(UI::createAndShowGUI);
     }
 
