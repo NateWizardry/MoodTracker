@@ -72,10 +72,10 @@ public class UI {
         JRadioButton mehButton = new JRadioButton("😐 Meh");
         mehButton.setToolTipText("Feeling neutral, not great but not bad either");
 
-        JRadioButton potatoButton = new JRadioButton("🥔 Current mood: potato");
+        JRadioButton potatoButton = new JRadioButton("🥴 Current mood: potato");
         potatoButton.setToolTipText("Feeling lazy or tired");
 
-        JRadioButton helpButton = new JRadioButton("📦 Send help and snacks");
+        JRadioButton helpButton = new JRadioButton("😭 Send help and snacks");
         helpButton.setToolTipText("Not feeling the best, might need a pick-me-up");
 
         // Group radio buttons
