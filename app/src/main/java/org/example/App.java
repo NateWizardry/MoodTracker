@@ -49,7 +49,7 @@ public class App {
         int size = moodData.size();
         double[] xData = new double[size];
         double[] yData = new double[size];
-        // String[] xLabels = new String[size]; // Array to hold date labels
+        // Def size Arrays to hold x&y values
 
         // Populate yData and xLabels using mood values from moodData
         int index = 0;
@@ -65,15 +65,14 @@ public class App {
 
         // Create Chart
         XYChart chart = QuickChart.getChart("Mood Tracker", "Day", "Mood Index", "Mood(days)", xData, yData);
-
-        // Customize the x-axis labels
-        // Show it
+        // Customized labels
+        
+        // new SwingWrapper(chart).displayChart();
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 new SwingWrapper(chart).displayChart();
             }
-
         });
         t.start();
 
